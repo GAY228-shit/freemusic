@@ -3,39 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHALKA INFORMATIKA DOMASHKA</title>
+    <title>Войти - Codeforces</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #f0f4f8, #cce7ff);
+            color: #333;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            padding: 0;
+            transition: background 0.3s ease-in-out;
         }
-        h1 {
-            margin: 20px 0;
+
+        #header {
+            padding: 20px;
+            background: linear-gradient(90deg, #1e88e5, #2196f3);
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .music-title {
-            font-size: 24px;
-            margin: 20px 0;
+
+        #header img {
+            height: 60px;
+            margin-top: 10px;
         }
-        a {
+
+        .menu-box {
+            background: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #34495e;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-list li a {
+            color: #fff;
             text-decoration: none;
-            color: #007BFF;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #34495e;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-list li a:hover {
+            background-color: #1abc9c;
+        }
+
+        .enterPage {
+            max-width: 450px;
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .enterPage:hover {
+            transform: scale(1.05);
+        }
+
+        .enterPage h5 {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            color: #34495e;
+        }
+
+        .table-form {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .table-form td {
+            padding: 12px 10px;
+        }
+
+        .table-form input[type="text"],
+        .table-form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .table-form input[type="text"]:focus,
+        .table-form input[type="password"]:focus {
+            border-color: #1e88e5;
+            outline: none;
+        }
+
+        .table-form .submit {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(90deg, #1e88e5, #2196f3);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .table-form .submit:hover {
+            background-color: #1565c0;
+            transform: scale(1.05);
+        }
+
+        .bottom-links {
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .bottom-links a {
+            color: #1e88e5;
+            text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .bottom-links a:hover {
+            color: #1565c0;
         }
+
+        .error-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Анимация для кнопки "ВЫ гей?" */
+        .bottom-links a:active {
+            transform: scale(0.95);
+        }
+
     </style>
+    <script>
+        function checkCredentials(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "gabe_itch" && password === "1337") {
+                window.open("https://www.tiktok.com/@legenda_s0/video/6994505064689847553?q=%D1%81%D1%82%D0%BE%D0%BD%D1%8B&t=1730979838423", "_blank");
+            } else if (username === "mamut_raxal" && password === "228") {
+                window.open("https://www.tiktok.com/@rc3sgm_/video/7412083188530613510?is_from_webapp=1&sender_device=pc", "_blank");
+            } else if (username === "Ельнур" && password === "525252") {
+                window.open("https://www.tiktok.com/@upminaa.cos/video/7433869436706180384", "_blank");
+            } else {
+                const errorMessage = document.createElement("div");
+                errorMessage.classList.add("error-message");
+                errorMessage.innerHTML = "НАПИШИ ЛОГИН И ПОРОЛЬ НЕГР или напиши @g3ard в тг";
+                document.body.appendChild(errorMessage);
+            }
+        }
+
+        function closeTabs() {
+            window.close();
+        }
+    </script>
 </head>
 <body>
-    <h1>DOMASHKA</h1>
-    <div class="music-title">
-        Название музыки: <a href="https://open.spotify.com/track/1dxbCgNcuuQcqdJopqhv2N?autoplay=true" target="_blank">DOMASHKA</a>
+    <div id="header">
+        <img src="https://codeforces.com/codeforces.org/s/46322/images/codeforces-sponsored-by-ton.png" alt="DOMASHKA">
+    </div>
+
+    <div class="menu-box">
+        <ul class="menu-list">
+            <li><a href="https://open.spotify.com/track/1dxbCgNcuuQcqdJopqhv2N" target="_blank">ПЛЕЙЛИСТ</a></li>
+            <li><a href="https://depositphotos.com/ru/photos/%D0%BD%D0%B5%D0%B3%D1%80.html" target="_blank">САМЫЕ ТОПОВЫЕ</a></li>
+            <li><a href="https://images.app.goo.gl/E3YRMwn9BeWSHq9t6" target="_blank">КАТАЛОГ ДЛЯ ДРУГИХ</a></li>
+            <li><a href="https://www.youtube.com/watch?v=SHgRgAeVV5I" target="_blank">ЖЕСТКОЕ</a></li>
+            <li><a href="https://codeforces.com/enter?back=%2F%3Flocale%3Dru" target="_blank">КАчалка</a></li>
+            <li><a href="https://acmp.ru/index.asp?main=task&id_task=561" target="_blank">АДСКОЕ</a></li>
+            <li><a href="https://images.app.goo.gl/sTB69RSdjS1CJKEM7" target="_blank">ГРУППА</a></li>
+            <li><a href="https://images.app.goo.gl/ss19PPCbaPqKfLmh8" target="_blank">САМЫЙ ПОПУЛЯРНЫЙ АКТЕР(смотреть впритыг)</a></li>
+            <li><a href="https://login1.edupage.org/" target="_blank">EDU</a></li>
+            <li><a href="https://web.telegram.org/k/#-2404867680" target="_blank">ПОМОЩЬ</a></li>
+        </ul>
+    </div>
+
+    <div class="enterPage">
+        <h5>Заполните форму, чтобы смотреть содержимое.</h5>
+        <p>Вы можете использовать ваш аккаунт <a href="#"><a href="https://www.youtube.com/watch?v=QD6H0W0HQG4" target="_blank">PORNHUB</a></a> или <a href="#"><a href="https://www.youtube.com/watch?v=CZmAZa2e1D4" target="_blank">rule34.xxx</a></a> для просмотра.</p>
+
+
+        <form method="post" action="" onsubmit="checkCredentials(event)">
+            <table class="table-form">
+                <tr>
+                    <td><label for="username">Впишите НИК любимой актрисы</label></td>
+                    <td><input type="text" id="username" name="username"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Какую часть вы хотите посмотреть</label></td>
+                    <td><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit" class="submit">СМОТРЕТЬ</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        <div class="bottom-links">
+            <a href="#" onclick="closeTabs()">ВЫ гей?</a>
+        </div>
     </div>
 </body>
 </html>
